@@ -1,0 +1,18 @@
+{
+    "name": "Eco.Bootstrap",
+    "rootNamespace": "Eco.Bootstrap",
+    "references": [
+        "Eco.Core",
+        "Eco.Config",
+        "Eco.Adapters"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

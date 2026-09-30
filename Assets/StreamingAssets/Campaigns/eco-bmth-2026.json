@@ -1,0 +1,158 @@
+{
+  "campaignId": "eco-bmth-2026",
+  "status": "live",
+  "schemaVersion": 1,
+  "meta": {
+    "productName": "Eco",
+    "tagline": "A música que ecoa em você",
+    "artist": "Bring Me The Horizon",
+    "albums": ["Sempiternal", "That's The Spirit"]
+  },
+  "theme": {
+    "colors": {
+      "ink": "#1C1A16",
+      "paper": "#EAE6DC",
+      "accent": "#B8311E",
+      "accent2": "#3E6B66"
+    },
+    "fonts": {
+      "display": "Source Serif 4",
+      "mono": "IBM Plex Mono"
+    },
+    "logoRef": "cdn://eco/logo.svg",
+    "characterRef": "cdn://eco/mascote.png"
+  },
+  "axes": [
+    { "id": "int", "label": "Intensidade", "icon": "waveform", "description": "Quanto a pessoa vive no auge — raiva, ansiedade, pico emocional." },
+    { "id": "nos", "label": "Nostalgia", "icon": "cassette", "description": "Quanto olha pra trás, introspecção, saudade, memória." },
+    { "id": "cao", "label": "Caos", "icon": "invader", "description": "Imprevisibilidade, rebeldia, fuga do controle." },
+    { "id": "rom", "label": "Romance", "icon": "heart", "description": "Conexão, entrega emocional, vínculo com o outro." },
+    { "id": "ous", "label": "Ousadia", "icon": "bolt", "description": "Confiança, provocação, atitude." }
+  ],
+  "scoring": {
+    "weights": { "personalidade": 0.6, "momento": 0.4 },
+    "axisFloor": 0,
+    "minDisplayedMatch": 70,
+    "algorithm": "cosine"
+  },
+  "questions": [
+    {
+      "id": "q1", "tag": "personalidade",
+      "prompt": "Numa festa cheia de gente que você não conhece, você é mais o tipo que…",
+      "sourceNote": "ecoa The House of Wolves / Empire",
+      "options": [
+        { "label": "Vira o centro e conduz a conversa", "deltas": { "ous": 2, "cao": 1, "nos": -1 } },
+        { "label": "Puxa 2–3 pra sair dali e achar algo melhor", "deltas": { "cao": 2, "ous": 1 } },
+        { "label": "Fica observando de um canto", "deltas": { "nos": 2, "int": -1 } },
+        { "label": "Vai direto em quem parece mais sozinho", "deltas": { "rom": 2, "nos": 1 } }
+      ]
+    },
+    {
+      "id": "q2", "tag": "personalidade",
+      "prompt": "Quando tudo desanda ao mesmo tempo, seu instinto é…",
+      "sourceNote": "ecoa House of Wolves / Hospital for Souls",
+      "options": [
+        { "label": "Botar fogo em tudo e lidar depois", "deltas": { "cao": 2, "int": 2, "rom": -1 } },
+        { "label": "Juntar quem também tá naufragando", "deltas": { "rom": 2, "nos": 1 } },
+        { "label": "Parar e organizar mentalmente", "deltas": { "nos": 2, "cao": -2 } },
+        { "label": "Sair andando sem rumo até esvaziar a cabeça", "deltas": { "cao": 1, "nos": 2, "int": -1 } }
+      ]
+    },
+    {
+      "id": "q3", "tag": "personalidade",
+      "prompt": "Sua ideia de lealdade é…",
+      "sourceNote": "ecoa True Friends / Follow You",
+      "options": [
+        { "label": "Estar lá mesmo doendo, sem cobrar", "deltas": { "rom": 2, "int": 1 } },
+        { "label": "Cobrar o mesmo tanto que dá", "deltas": { "int": 2, "ous": 1, "rom": -1 } },
+        { "label": "Confiar aos poucos, testando antes", "deltas": { "nos": 2, "cao": -1 } },
+        { "label": "Se não é leve, não rola", "deltas": { "ous": 2, "cao": 1, "rom": -1 } }
+      ]
+    },
+    {
+      "id": "q4", "tag": "personalidade",
+      "prompt": "Um cheiro, lugar ou música te joga numa fase antiga. Você…",
+      "sourceNote": "ecoa Shadow Moses / What You Need",
+      "options": [
+        { "label": "Fica ali, matando saudade", "deltas": { "nos": 3, "ous": -1 } },
+        { "label": "Usa isso como combustível pra virar a página", "deltas": { "ous": 2, "int": 1, "nos": -2 } },
+        { "label": "Liga pra alguém daquela fase", "deltas": { "rom": 2, "nos": 1 } },
+        { "label": "Ignora — presente importa mais", "deltas": { "ous": 2, "cao": 1, "nos": -2 } }
+      ]
+    },
+    {
+      "id": "q5", "tag": "momento",
+      "prompt": "Nas últimas semanas, sua cabeça tem estado mais pra…",
+      "sourceNote": "ecoa Can You Feel My Heart / Doomed",
+      "options": [
+        { "label": "Um alarme que não desliga", "deltas": { "int": 3, "nos": -1 } },
+        { "label": "Uma novela emotiva, tudo pesa mais", "deltas": { "rom": 2, "nos": 2 } },
+        { "label": "Surpreendentemente tranquila", "deltas": { "nos": 1, "int": -2 } },
+        { "label": "Elétrica, procurando agitação", "deltas": { "cao": 2, "ous": 1 } }
+      ]
+    },
+    {
+      "id": "q6", "tag": "momento",
+      "prompt": "Se pudesse sumir num fim de semana agora, você…",
+      "sourceNote": "ecoa Run / Crooked Young",
+      "options": [
+        { "label": "Pegava estrada sem destino", "deltas": { "cao": 2, "ous": 1 } },
+        { "label": "Ia pra uma balada até cair de cansaço", "deltas": { "cao": 2, "int": 1 } },
+        { "label": "Chamava quem confia, sem plano", "deltas": { "rom": 2, "cao": -1 } },
+        { "label": "Trancava o quarto e desligava de tudo", "deltas": { "nos": 2, "cao": -2 } }
+      ]
+    },
+    {
+      "id": "q7", "tag": "momento",
+      "prompt": "O jeito que você tá processando o que pesa agora é…",
+      "sourceNote": "ecoa Drown / Oh No / Avalanche",
+      "options": [
+        { "label": "Transformando em algo — treino, trabalho, música", "deltas": { "int": 2, "ous": 1 } },
+        { "label": "Deixando sentir tudo, sem pressa", "deltas": { "rom": 2, "nos": 1 } },
+        { "label": "Dividindo com alguém", "deltas": { "rom": 2, "cao": -1 } },
+        { "label": "Aceitando que a fase passa", "deltas": { "nos": 2, "int": -1 } }
+      ]
+    },
+    {
+      "id": "q8", "tag": "momento",
+      "prompt": "Quando alguém duvida que você vai dar conta de algo, você…",
+      "sourceNote": "ecoa Throne / Blasphemy / Happy Song",
+      "options": [
+        { "label": "Prova com atitude, sem discurso", "deltas": { "ous": 2, "int": 1, "nos": -1 } },
+        { "label": "Ri e debocha, transforma em piada", "deltas": { "ous": 2, "cao": 1 } },
+        { "label": "Guarda a raiva, usa como combustível calado", "deltas": { "int": 2, "nos": 1, "ous": -1 } },
+        { "label": "Deixa quieto — não precisa provar nada", "deltas": { "ous": 1, "nos": 1, "cao": -1 } }
+      ]
+    }
+  ],
+  "tracks": [
+    { "id": "t01", "title": "Can You Feel My Heart", "album": "Sempiternal", "fingerprint": { "int": 5, "nos": 1, "cao": 4, "rom": 1, "ous": 2 }, "resultPhrase": "Você vive no fio da navalha, e sente cada batida a mais.", "coverRef": "cdn://eco/covers/t01.jpg" },
+    { "id": "t02", "title": "The House of Wolves", "album": "Sempiternal", "fingerprint": { "int": 4, "nos": 1, "cao": 5, "rom": 2, "ous": 4 }, "resultPhrase": "Sedução e perigo andam juntos com você.", "coverRef": "cdn://eco/covers/t02.jpg" },
+    { "id": "t03", "title": "Empire (Let Them Sing)", "album": "Sempiternal", "fingerprint": { "int": 4, "nos": 2, "cao": 3, "rom": 1, "ous": 5 }, "resultPhrase": "Você não canta no coro de ninguém.", "coverRef": "cdn://eco/covers/t03.jpg" },
+    { "id": "t04", "title": "Sleepwalking", "album": "Sempiternal", "fingerprint": { "int": 2, "nos": 3, "cao": 2, "rom": 4, "ous": 2 }, "resultPhrase": "Meio sonho, meio real — assim que você atravessa a vida.", "coverRef": "cdn://eco/covers/t04.jpg" },
+    { "id": "t05", "title": "Go to Hell, For Heaven's Sake", "album": "Sempiternal", "fingerprint": { "int": 5, "nos": 1, "cao": 4, "rom": 1, "ous": 5 }, "resultPhrase": "Prefere queimar tudo a fingir que tá tudo bem.", "coverRef": "cdn://eco/covers/t05.jpg" },
+    { "id": "t06", "title": "Shadow Moses", "album": "Sempiternal", "fingerprint": { "int": 3, "nos": 5, "cao": 2, "rom": 1, "ous": 4 }, "resultPhrase": "Viveria de novo cada segundo, sem editar nada.", "coverRef": "cdn://eco/covers/t06.jpg" },
+    { "id": "t07", "title": "And the Snakes Start to Sing", "album": "Sempiternal", "fingerprint": { "int": 4, "nos": 2, "cao": 3, "rom": 1, "ous": 3 }, "resultPhrase": "Sabe reconhecer traição antes de todo mundo.", "coverRef": "cdn://eco/covers/t07.jpg" },
+    { "id": "t08", "title": "Seen It All Before", "album": "Sempiternal", "fingerprint": { "int": 2, "nos": 4, "cao": 2, "rom": 1, "ous": 1 }, "resultPhrase": "Já não se surpreende fácil — e tudo bem com isso.", "coverRef": "cdn://eco/covers/t08.jpg" },
+    { "id": "t09", "title": "Antivist", "album": "Sempiternal", "fingerprint": { "int": 5, "nos": 1, "cao": 5, "rom": 1, "ous": 5 }, "resultPhrase": "Você é a rebeldia sem pedir desculpa.", "coverRef": "cdn://eco/covers/t09.jpg" },
+    { "id": "t10", "title": "Crooked Young", "album": "Sempiternal", "fingerprint": { "int": 3, "nos": 3, "cao": 4, "rom": 2, "ous": 5 }, "resultPhrase": "Fuga é o seu jeito favorito de sentir vivo.", "coverRef": "cdn://eco/covers/t10.jpg" },
+    { "id": "t11", "title": "Hospital for Souls", "album": "Sempiternal", "fingerprint": { "int": 3, "nos": 3, "cao": 1, "rom": 3, "ous": 2 }, "resultPhrase": "Você cura enquanto ainda tá se curando.", "coverRef": "cdn://eco/covers/t11.jpg" },
+    { "id": "t12", "title": "Join the Club", "album": "Sempiternal", "fingerprint": { "int": 3, "nos": 4, "cao": 2, "rom": 2, "ous": 2 }, "resultPhrase": "Faz piada da dor pra não afundar sozinho nela.", "coverRef": "cdn://eco/covers/t12.jpg" },
+    { "id": "t13", "title": "Deathbeds", "album": "Sempiternal", "fingerprint": { "int": 3, "nos": 2, "cao": 1, "rom": 5, "ous": 1 }, "resultPhrase": "Ama do jeito que dói mais — inteiro.", "coverRef": "cdn://eco/covers/t13.jpg" },
+    { "id": "t14", "title": "Doomed", "album": "That's The Spirit", "fingerprint": { "int": 3, "nos": 2, "cao": 2, "rom": 4, "ous": 2 }, "resultPhrase": "Sabe que vai doer e vai igual.", "coverRef": "cdn://eco/covers/t14.jpg" },
+    { "id": "t15", "title": "Happy Song", "album": "That's The Spirit", "fingerprint": { "int": 3, "nos": 1, "cao": 5, "rom": 1, "ous": 4 }, "resultPhrase": "Faz bagunça de um jeito que ninguém leva a mal.", "coverRef": "cdn://eco/covers/t15.jpg" },
+    { "id": "t16", "title": "Throne", "album": "That's The Spirit", "fingerprint": { "int": 4, "nos": 1, "cao": 2, "rom": 1, "ous": 5 }, "resultPhrase": "Ninguém senta no seu trono.", "coverRef": "cdn://eco/covers/t16.jpg" },
+    { "id": "t17", "title": "True Friends", "album": "That's The Spirit", "fingerprint": { "int": 4, "nos": 2, "cao": 3, "rom": 2, "ous": 4 }, "resultPhrase": "Aprendeu com quem te decepcionou — na marra.", "coverRef": "cdn://eco/covers/t17.jpg" },
+    { "id": "t18", "title": "Follow You", "album": "That's The Spirit", "fingerprint": { "int": 2, "nos": 1, "cao": 1, "rom": 5, "ous": 1 }, "resultPhrase": "Fica, mesmo quando seria mais fácil ir.", "coverRef": "cdn://eco/covers/t18.jpg" },
+    { "id": "t19", "title": "What You Need", "album": "That's The Spirit", "fingerprint": { "int": 3, "nos": 3, "cao": 2, "rom": 2, "ous": 2 }, "resultPhrase": "Prefere se entender por dentro antes de mostrar por fora.", "coverRef": "cdn://eco/covers/t19.jpg" },
+    { "id": "t20", "title": "Avalanche", "album": "That's The Spirit", "fingerprint": { "int": 3, "nos": 2, "cao": 2, "rom": 3, "ous": 2 }, "resultPhrase": "Deixa a onda te levar — sabe que do outro lado tem alívio.", "coverRef": "cdn://eco/covers/t20.jpg" },
+    { "id": "t21", "title": "Run", "album": "That's The Spirit", "fingerprint": { "int": 4, "nos": 1, "cao": 3, "rom": 1, "ous": 5 }, "resultPhrase": "Correr é a sua forma de sobreviver.", "coverRef": "cdn://eco/covers/t21.jpg" },
+    { "id": "t22", "title": "Drown", "album": "That's The Spirit", "fingerprint": { "int": 4, "nos": 2, "cao": 2, "rom": 4, "ous": 3 }, "resultPhrase": "Afunda e sobe — sempre mais forte.", "coverRef": "cdn://eco/covers/t22.jpg" },
+    { "id": "t23", "title": "Blasphemy", "album": "That's The Spirit", "fingerprint": { "int": 2, "nos": 1, "cao": 3, "rom": 2, "ous": 5 }, "resultPhrase": "Provoca com um sorriso no rosto.", "coverRef": "cdn://eco/covers/t23.jpg" },
+    { "id": "t24", "title": "Oh No", "album": "That's The Spirit", "fingerprint": { "int": 2, "nos": 4, "cao": 1, "rom": 2, "ous": 1 }, "resultPhrase": "Sabe aceitar quando a fase é só ladeira abaixo — e seguir.", "coverRef": "cdn://eco/covers/t24.jpg" }
+  ],
+  "leadCapture": { "fields": ["nome", "email", "empresa"], "required": ["nome", "email"] },
+  "webBaseUrl": "https://eco.suricatus.games",
+  "sessionApiUrl": "",
+  "leadApiUrl": ""
+}

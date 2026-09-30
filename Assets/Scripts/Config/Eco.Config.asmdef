@@ -1,0 +1,16 @@
+{
+    "name": "Eco.Config",
+    "rootNamespace": "Eco.Config",
+    "references": [
+        "Eco.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
